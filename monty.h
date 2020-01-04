@@ -1,6 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
-
+#define DELIMS " \t\n"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

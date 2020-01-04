@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * free_dataStructure - function that frees a data structure
+ *
+ * Return: void
+ */
 void free_dataStructure(void)
 {
 	stack_t *tmp1, *tmp2 = NULL;

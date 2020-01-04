@@ -1,10 +1,12 @@
 #include "monty.h"
-#define UNUSED __attribute__((unused))
 
 /**
- * do_pall - function that prints all the elements of a stack_t list
- * @h: pointer to head node
- * Return: the number of nodes
+ * do_pall - function that prints all the values in the stack, starting from
+ * the top of the stack
+ * @stack: pointer to the top of the stack
+ * @UNUSED: unused line number
+ *
+ * Return: void
  */
 void do_pall(stack_t **stack, unsigned int line_number UNUSED)
 {
@@ -19,10 +21,11 @@ void do_pall(stack_t **stack, unsigned int line_number UNUSED)
 
 
 /**
- * do_push - function that adds a new node at the beginning of a stack_t list
- * @head: double pointer to head node
- * @n: node to be added
- * Return: the address of the new element, or NULL if it failed
+ * do_push - function that pushes an element to the stack
+ * @stack: pointer to the top of the stack
+ * @line_number: error line number
+ *
+ * Return: void
  */
 void do_push(stack_t **stack, unsigned int line_number)
 {
@@ -64,8 +67,10 @@ void do_push(stack_t **stack, unsigned int line_number)
 
 
 /**
- * do_pint - function that prints the 1st node
- * @head: head node
+ * do_pint - function that prints the first element of the stack
+ * @stack: pointer to the top of the stack
+ * @line_number: error line number
+ *
  * Return: void
  */
 void do_pint(stack_t **stack, unsigned int line_number)
@@ -74,26 +79,36 @@ void do_pint(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	printf("%d\n", head->n);
 }
 
+
+/**
+ * do_pop - function that removes the first element of the stack
+ * @stack: pointer to the top of the stack
+ * @line_number: error line number
+ *
+ * Return: void
+ */
 void do_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	temp = *stack;
 	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
+	temp->prev = NULL;
 
 	free(temp);
 }

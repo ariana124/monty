@@ -2,13 +2,16 @@
 global_vars_t GLOBAL_var;
 /**
  * main - main function, for running the monty executable
+ * @argc: argument count
+ * @argv: argument vector
  *
  * Return: int, an exit status
- **/
+ */
 int main(int argc, char **argv)
 {
-	/* initialize stack */
+	/* initializes stack */
 	stack_t *head;
+
 	head = NULL;
 	GLOBAL_var.top = &head;
 

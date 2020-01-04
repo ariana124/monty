@@ -114,6 +114,7 @@ void do_pop(stack_t **stack, unsigned int line_number)
 }
 
 
+
 void do_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
@@ -125,7 +126,7 @@ void do_add(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
-
+  
 	num_a = (*stack)->n;
 	num_b = (*stack)->next->n;
 	sum = num_a + num_b;

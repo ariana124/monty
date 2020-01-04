@@ -2,12 +2,13 @@
 
 /**
  * do_nop - opcode that does nothing
- * @UNUSED: unused stack
- * @UNUSED: unused line number
+ * @stack: pointer to stack
+ * @line_number: line number
  *
  * Return: void
  */
-void do_nop(stack_t **stack UNUSED, unsigned int line_number UNUSED)
+void do_nop(stack_t **stack, unsigned int line_number)
 {
-	return;
+	(void)stack;
+	(void)line_number;
 }

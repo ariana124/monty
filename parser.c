@@ -1,14 +1,18 @@
 #include "monty.h"
-#define UNUSED __attribute__((unused))
 
-/* parse - this file contains opening, reading and closing a file & tok */
+/**
+ * parse - function that parses and reads the bytecode files
+ * @fileName: file to be opened
+ * @UNUSED: unused pointer to head
+ *
+ * Return: void
+ */
 void parse(char *fileName, stack_t **head UNUSED)
 {
 	FILE *fp;
 	char *line = NULL, *op;
-	size_t len = 0; 
+	size_t len = 0;
 	unsigned int lineNum = 1;
-	ssize_t read;
 
 	fp = fopen(fileName, "r");
 	if (fp == NULL)
@@ -19,7 +23,7 @@ void parse(char *fileName, stack_t **head UNUSED)
 
 	atexit(free_dataStructure);
 
-	while ((read = getline(&line, &len, fp)) != -1)
+	while (getline(&line, &len, fp) != -1)
 	{
 		op = strtok(line, DELIMS);
 		if (op != NULL)

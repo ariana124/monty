@@ -1,6 +1,13 @@
 #include "monty.h"
 
-
+/**
+ * exe_operation - function that executes opcodes
+ * @op_command: opcode commamd
+ * @head: pointer to head
+ * @line_number: line number
+ *
+ * Return: void
+ */
 void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 {
 	int i;
@@ -25,4 +32,3 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 	op_command);
 	exit(EXIT_FAILURE);
 }
-

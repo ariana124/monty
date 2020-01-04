@@ -2,17 +2,15 @@
 
 /**
  * _isdigit - checks for a digit
- * @c: number
+ * @str: string
  *
- *
- * Return: 0 means NOT digit; 1 means IS DIGIT
- *
+ * Return: 0 means NO digit, 1 means there IS digit
  */
 int _isdigit(char *str)
 {
 	int i;
 
-	for(i = 0; str[i]; i++)
+	for (i = 0; str[i]; i++)
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
@@ -21,6 +19,13 @@ int _isdigit(char *str)
 	return (1);
 }
 
+
+/**
+ * dropnl - function that removes the newline at the end of a string
+ * @src: source string
+ *
+ * Return: void
+ */
 void dropnl(char *src)
 {
 	int i;

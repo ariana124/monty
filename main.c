@@ -1,14 +1,19 @@
 #include "monty.h"
+
 stack_t **GLOBAL_head;
+
 /**
  * main - main function, for running the monty executable
+ * @argc: argument count
+ * @argv: argument vector
  *
  * Return: int, an exit status
- **/
+ */
 int main(int argc, char **argv)
 {
-	/* initialize stack */
+	/* initializes stack */
 	stack_t *head;
+
 	head = NULL;
 	GLOBAL_head = &head;
 

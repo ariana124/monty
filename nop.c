@@ -9,5 +9,5 @@
  */
 void do_nop(stack_t **stack UNUSED, unsigned int line_number UNUSED)
 {
-
+	return;
 }

@@ -22,7 +22,7 @@ void parse(char *fileName, stack_t **head UNUSED)
 	}
 
 	GLOBAL_var.fp = fp;
-	
+
 	atexit(free_dataStructure);
 
 	while (getline(&line, &len, fp) != -1)

@@ -8,6 +8,7 @@
 void free_dataStructure(void)
 {
 	stack_t *tmp1, *tmp2 = NULL;
+
 	tmp1 = *(GLOBAL_var.top);
 
 	while (tmp1 != NULL)

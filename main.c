@@ -1,7 +1,5 @@
 #include "monty.h"
-
-stack_t **GLOBAL_head;
-
+global_vars_t GLOBAL_var;
 /**
  * main - main function, for running the monty executable
  * @argc: argument count
@@ -15,7 +13,7 @@ int main(int argc, char **argv)
 	stack_t *head;
 
 	head = NULL;
-	GLOBAL_head = &head;
+	GLOBAL_var.top = &head;
 
 	/* checks if argument count is 2 */
 	if (argc != 2)

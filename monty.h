@@ -45,12 +45,21 @@ void dropnl(char *src);
 void exe_operation(char *operation, stack_t **head, unsigned int line_number);
 int _isdigit(char *str);
 void free_dataStructure(void);
-
+void free_fp_line(void);
 /* instructions */
 void do_push(stack_t **stack, unsigned int line_number);
 void do_pall(stack_t **stack, unsigned int line_number);
 void do_pint(stack_t **stack, unsigned int line_number);
 void do_pop(stack_t **stack, unsigned int line_number);
+
 /* extern or global variable */
-extern stack_t **GLOBAL_head;
+typedef struct global_vars_s
+{
+	stack_t **top;
+	FILE *fp;
+	char *line;
+} global_vars_t;
+
+extern global_vars_t GLOBAL_var;
+
 #endif /* MONTY_H */

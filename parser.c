@@ -17,10 +17,13 @@ void parse(char *fileName, stack_t **head UNUSED)
 		exit(EXIT_FAILURE);
 	}
 
+	GLOBAL_var.fp = fp;
+	
 	atexit(free_dataStructure);
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
+		GLOBAL_var.line = line;
 		op = strtok(line, DELIMS);
 		if (op != NULL)
 			exe_operation(op, head, lineNum);

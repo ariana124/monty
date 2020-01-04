@@ -39,10 +39,18 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* pops.c: functions that mimic pall, push, pop, and pint */
-int do_pall(stack_t *h);
-stack_t *do_push(stack_t **head, const int n);
-int do_pop(stack_t **head, unsigned int index);
-void do_pint(stack_t *head);
+/* helper functions */
+void parse(char *fileName, stack_t **head);
+void dropnl(char *src);
+void exe_operation(char *operation, stack_t **head, unsigned int line_number);
+int _isdigit(char *str);
+void free_dataStructure(void);
 
+/* instructions */
+void do_push(stack_t **stack, unsigned int line_number);
+void do_pall(stack_t **stack, unsigned int line_number);
+void do_pint(stack_t **stack, unsigned int line_number);
+void do_pop(stack_t **stack, unsigned int line_number);
+/* extern or global variable */
+extern stack_t **GLOBAL_head;
 #endif /* MONTY_H */

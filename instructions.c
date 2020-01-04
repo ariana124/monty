@@ -114,28 +114,28 @@ void do_pop(stack_t **stack, unsigned int line_number)
 }
 
 
-/**
- * do_swap - function that swaps the first two elements of the stack
- * @stack: pointer to the top of the stack
- * @line_number: error line number
- *
- * Return: void
- */
-void do_swap(stack_t **stack, unsigned int line_number)
-{
-	int temp1, temp2;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+void do_add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	int num_a, num_b, sum;
+
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n",
+		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n",
 			line_number);
 		exit(EXIT_FAILURE);
 	}
+  
+	num_a = (*stack)->n;
+	num_b = (*stack)->next->n;
+	sum = num_a + num_b;
 
-	temp1 = (*stack)->n;
-	temp2 = (*stack)->next->n;
+	/* pop */
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp->prev = NULL;
+	free(temp);
 
-	(*stack)->n = temp2;
-	(*stack)->next->n = temp1;
-
+	(*stack)->n = sum;
 }

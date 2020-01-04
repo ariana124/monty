@@ -58,6 +58,7 @@ void do_push(stack_t **stack, unsigned int line_number);
 void do_pall(stack_t **stack, unsigned int line_number);
 void do_pint(stack_t **stack, unsigned int line_number);
 void do_pop(stack_t **stack, unsigned int line_number);
+void do_swap(stack_t **stack, unsigned int line_number);
 
 /* extern or global variable */
 typedef struct global_vars_s

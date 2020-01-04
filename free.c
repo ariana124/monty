@@ -19,6 +19,12 @@ void free_dataStructure(void)
 	}
 }
 
+
+/**
+ * free_fp_line - function that frees the file pointer and line
+ *
+ * Return: void
+ */
 void free_fp_line(void)
 {
 	fclose(GLOBAL_var.fp);

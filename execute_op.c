@@ -17,6 +17,7 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 		{"pint", do_pint},
 		{"pop", do_pop},
 		{"swap", do_swap},
+		{"nop", do_nop},
 		{NULL, NULL}
 	};
 

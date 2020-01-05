@@ -22,6 +22,7 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 		{"div", do_div},
 		{"swap", do_swap},
 		{"nop", do_nop},
+		{"pchar", do_pchar},
 		{NULL, NULL}
 	};
 
@@ -34,8 +35,11 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 		}
 	}
 
-	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number,
-	op_command);
-	free_fp_line();
-	exit(EXIT_FAILURE);
+	if (op_command[0] != '#')
+	{
+		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number,
+		op_command);
+		free_fp_line();
+		exit(EXIT_FAILURE);
+	}
 }

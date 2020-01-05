@@ -64,6 +64,7 @@ void do_mul(stack_t **stack, unsigned int line_number);
 void do_div(stack_t **stack, unsigned int line_number);
 void do_swap(stack_t **stack, unsigned int line_number);
 void do_nop(stack_t **stack, unsigned int line_number);
+void do_pchar(stack_t **stack, unsigned int line_number);
 
 /* extern or global variable */
 typedef struct global_vars_s

@@ -20,6 +20,7 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 		{"sub", do_sub},
 		{"mul", do_mul},
 		{"div", do_div},
+		{"mod", do_mod},
 		{"swap", do_swap},
 		{"nop", do_nop},
 		{"pchar", do_pchar},

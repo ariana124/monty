@@ -38,22 +38,22 @@ void do_add(stack_t **stack, unsigned int line_number)
  */
 void do_sub(stack_t **stack, unsigned int line_number)
 {
-        int a, b, difference;
+	int a, b, difference;
 
-        if (*stack == NULL || (*stack)->next == NULL)
-        {
-                dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n",
-                        line_number);
-                exit(EXIT_FAILURE);
-        }
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
 
-        a = (*stack)->n;
-        b = (*stack)->next->n;
-        difference = b - a;
+	a = (*stack)->n;
+	b = (*stack)->next->n;
+	difference = b - a;
 
-        do_pop(stack, line_number);
+	do_pop(stack, line_number);
 
-        (*stack)->n = difference;
+	(*stack)->n = difference;
 }
 
 
@@ -95,17 +95,17 @@ void do_mul(stack_t **stack, unsigned int line_number)
  */
 void do_div(stack_t **stack, unsigned int line_number)
 {
-        int a, b, quotient;
+	int a, b, quotient;
 
-        if (*stack == NULL || (*stack)->next == NULL)
-        {
-                dprintf(STDERR_FILENO, "L%u: can't div, stack too short\n",
-                        line_number);
-                exit(EXIT_FAILURE);
-        }
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't div, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
 
-        a = (*stack)->n;
-        b = (*stack)->next->n;
+	a = (*stack)->n;
+	b = (*stack)->next->n;
 
 	if (a == 0)
 	{
@@ -113,9 +113,45 @@ void do_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-        quotient = b / a;
+	quotient = b / a;
 
-        do_pop(stack, line_number);
+	do_pop(stack, line_number);
 
-        (*stack)->n = quotient;
+	(*stack)->n = quotient;
+}
+
+
+/**
+ * do_mod - function that divides the second element by the first element of
+ * the stack
+ * @stack: pointer to stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+void do_mod(stack_t **stack, unsigned int line_number)
+{
+	int a, b, mod;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't div, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	a = (*stack)->n;
+	b = (*stack)->next->n;
+
+	if (a == 0)
+	{
+		dprintf(STDERR_FILENO, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	mod = b % a;
+
+	do_pop(stack, line_number);
+
+	(*stack)->n = mod;
 }

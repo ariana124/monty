@@ -135,7 +135,7 @@ void do_mod(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't div, stack too short\n",
+		dprintf(STDERR_FILENO, "L%u: can't mod, stack too short\n",
 			line_number);
 		exit(EXIT_FAILURE);
 	}

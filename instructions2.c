@@ -1,10 +1,17 @@
 #include "monty.h"
 
+/**
+ * do_pchar - function that prints the char at the top of the stack
+ * @stack: pointer to the top of the stack
+ * @line_number: error line number
+ *
+ * Return: void
+ */
 void do_pchar(stack_t **stack, unsigned int line_number)
 {
 	int num;
 
-	if (*stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pchar, stack empty\n",
 			line_number);

@@ -1,7 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define DELIMS " \t\n"
+#define DELIMS " \t\n\r"
 #define UNUSED __attribute__((unused))
 
 #include <stdio.h>

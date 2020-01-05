@@ -35,7 +35,7 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 		}
 	}
 
-	if (op_command[0] != '#')
+	if (op_command[0] != '#' && strlen(op_command) != 0)
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number,
 		op_command);

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+
 /**
  * do_pall - function that prints all the values in the stack, starting from
  * the top of the stack
@@ -111,39 +112,6 @@ void do_pop(stack_t **stack, unsigned int line_number)
 	temp->prev = NULL;
 
 	free(temp);
-}
-
-
-/**
- * do_add - function that adds the first two elements of the stack
- * @stack: pointer to the top of the stack
- * @line_number: error line number
- *
- * Return: void
- */
-void do_add(stack_t **stack, unsigned int line_number)
-{
-	stack_t *temp;
-	int num_a, num_b, sum;
-
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n",
-			line_number);
-		exit(EXIT_FAILURE);
-	}
-  
-	num_a = (*stack)->n;
-	num_b = (*stack)->next->n;
-	sum = num_a + num_b;
-
-	/* pop */
-	temp = *stack;
-	*stack = (*stack)->next;
-	temp->prev = NULL;
-	free(temp);
-
-	(*stack)->n = sum;
 }
 
 

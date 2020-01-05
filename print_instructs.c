@@ -42,10 +42,10 @@ void do_pchar(stack_t **stack, unsigned int line_number)
 void do_rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode = malloc(sizeof(stack_t));
-	stack_t *tempNode = malloc(sizeof(stack_t));
+	stack_t *tempNode;
 	int temp;
 
-	if (newNode == NULL || tempNode == NULL)
+	if (newNode == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		free_fp_line();

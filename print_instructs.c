@@ -63,6 +63,41 @@ void do_rotl(stack_t **stack, unsigned int line_number)
 	head->prev = tail;
 }
 
+
+/**
+ * do_rotr - function that rotates the stack to the top, the top element of the
+ * stack becomes the last one, and the second top element of the stack becomes
+ * the first one
+ * @stack: pointer to the stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+void do_rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head, *tail;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		do_nop(stack, line_number);
+		return;
+	}
+
+	head = *stack;
+	tail = *stack;
+
+	while (tail->next != NULL)
+		tail = tail->next;
+
+	tail->prev->next = NULL;
+	tail->prev = NULL;
+	tail->next = head;
+	head->prev = tail;
+	head = tail;
+	*stack = head;
+}
+
+
 /**
  * do_pstr - prints the string starting at the top of the stack
  * @stack: pointer to the stack

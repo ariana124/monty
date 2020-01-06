@@ -101,7 +101,7 @@ void do_rotr(stack_t **stack, unsigned int line_number)
 /**
  * do_pstr - prints the string starting at the top of the stack
  * @stack: pointer to the stack
- * @line_number: line number
+ * @UNUSED: line number
  *
  * Return: void
  */

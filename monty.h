@@ -71,6 +71,15 @@ void do_pstr(stack_t **stack, unsigned int line_number);
 void do_rotr(stack_t **stack, unsigned int line_number);
 
 /* extern or global variable */
+
+/**
+ * struct global_vars_s - global structure
+ * @top: points to the top of the stack
+ * @fp: points to the file pointer
+ * @line: points to the current line of the script
+ *
+ */
+
 typedef struct global_vars_s
 {
 	stack_t **top;

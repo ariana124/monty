@@ -25,6 +25,7 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 		{"nop", do_nop},
 		{"pchar", do_pchar},
 		{"rotl", do_rotl},
+		{"rotr", do_rotr},
 		{"pstr", do_pstr},
 		{NULL, NULL}
 	};

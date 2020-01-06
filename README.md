@@ -67,14 +67,6 @@ $ ./monty bytecodes/07.m
 1
 ```
 
-### File Descriptions
-
-
-
-### Monty's Program Flow
-
-
-
 ### Authors
 
 [Kevin Paul Apostal](https://github.com/kevapostol)

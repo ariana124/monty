@@ -41,35 +41,24 @@ void do_pchar(stack_t **stack, unsigned int line_number)
  */
 void do_rotl(stack_t **stack, unsigned int line_number)
 {
-	stack_t *newNode = malloc(sizeof(stack_t));
-	stack_t *tempNode;
-	int temp;
-
-	if (newNode == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		free_fp_line();
-		exit(EXIT_FAILURE);
-	}
-
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	stack_t *head, *tail;
+	
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		do_nop(stack, line_number);
-		free(newNode);
 		return;
 	}
 
-	temp = (*stack)->n;
+	head = *stack;
+	tail = *stack;
 
-	do_pop(stack, line_number);
+	while (tail->next != NULL)
+		tail = tail->next;
 
-	tempNode = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 
-	while (tempNode->next != NULL)
-		tempNode = tempNode->next;
-
-	newNode->n = temp;
-	newNode->prev = tempNode;
-	newNode->next = NULL;
-	tempNode->next = newNode;
+	tail->next = head;
+	head->next = NULL;
+	head->prev = tail;
 }

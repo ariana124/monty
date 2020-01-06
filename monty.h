@@ -68,6 +68,7 @@ void do_nop(stack_t **stack, unsigned int line_number);
 void do_pchar(stack_t **stack, unsigned int line_number);
 void do_rotl(stack_t **stack, unsigned int line_number);
 void do_pstr(stack_t **stack, unsigned int line_number);
+void do_rotr(stack_t **stack, unsigned int line_number);
 
 /* extern or global variable */
 typedef struct global_vars_s

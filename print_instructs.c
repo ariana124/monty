@@ -106,8 +106,8 @@ void do_rotr(stack_t **stack, unsigned int line_number)
  * Return: void
  */
 void do_pstr(stack_t **stack, unsigned int line_number UNUSED)
-{	
-	stack_t *h;	
+{
+	stack_t *h;
 	int num;
 
 	if (stack == NULL || *stack == NULL)

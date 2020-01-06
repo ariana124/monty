@@ -42,7 +42,7 @@ void do_pchar(stack_t **stack, unsigned int line_number)
 void do_rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head, *tail;
-	
+
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		do_nop(stack, line_number);
@@ -61,4 +61,35 @@ void do_rotl(stack_t **stack, unsigned int line_number)
 	tail->next = head;
 	head->next = NULL;
 	head->prev = tail;
+}
+
+/**
+ * do_pstr - prints the string starting at the top of the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+void do_pstr(stack_t **stack, unsigned int line_number UNUSED)
+{	
+	stack_t *h;	
+	int num;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		printf("\n");
+		return;
+	}
+
+	h = *stack;
+	while (h != NULL)
+	{
+		num = h->n;
+		if (num == 0 || !(num >= 0 && num <= 127))
+			break;
+
+		printf("%c", num);
+		h = h->next;
+	}
+	printf("\n");
 }

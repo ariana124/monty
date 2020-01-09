@@ -38,7 +38,11 @@ void exe_operation(char *op_command, stack_t **head, unsigned int line_number)
 			return;
 		}
 	}
-
+	if (strcmp(op_command, "queue") == 0 || strcmp(op_command, "stack") == 0)
+	{
+		set_mode(op_command);
+		return;
+	}
 	if (op_command[0] != '#' && strlen(op_command) != 0)
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number,

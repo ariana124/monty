@@ -44,3 +44,17 @@ void dropnl(char *src)
 		}
 	}
 }
+
+/**
+ * global_mode - sets the mode if it is a stack or queue
+ * @mode: mode of the program if it is STACK or QUEUE
+ *
+ * Return: void
+ */
+void set_mode(char *command)
+{
+	if (strcmp(command, "queue") == 0)
+		GLOBAL_var.mode = QUEUE;
+	else
+		GLOBAL_var.mode = STACK;	
+}

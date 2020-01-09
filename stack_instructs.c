@@ -30,9 +30,29 @@ void do_pall(stack_t **stack, unsigned int line_number UNUSED)
  */
 void do_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *newnode = malloc(sizeof(stack_t));
 	char *str_num;
 	int num;
+
+	str_num = strtok(NULL, DELIMS);
+	if (str_num == NULL || _isdigit(str_num) == 0)
+	{
+		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		free_fp_line();
+		exit(EXIT_FAILURE);
+	}
+
+	num = atoi(str_num);
+
+	if (GLOBAL_var.mode == STACK)
+		do_push_stack(stack, num);
+	else
+		do_push_queue(stack, num);
+}
+
+void do_push_queue(stack_t **stack, int num)
+{
+	stack_t *newnode = malloc(sizeof(stack_t));
+	stack_t *tail;
 
 	if (newnode == NULL)
 	{
@@ -41,16 +61,37 @@ void do_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	str_num = strtok(NULL, DELIMS);
-	if (str_num == NULL || _isdigit(str_num) == 0)
+	newnode->n = num;
+
+	if (stack == NULL || *stack == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		*stack = newnode;
+		newnode->next = NULL;
+		newnode->prev = NULL;
+		return;
+	}
+
+	tail = *stack;
+	while (tail->next != NULL)
+		tail = tail->next;
+
+	newnode->next = NULL;
+	newnode->prev = tail;
+	tail->next = newnode;
+}
+
+
+void do_push_stack(stack_t **stack, int num)
+{
+	stack_t *newnode = malloc(sizeof(stack_t));
+
+	if (newnode == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		free_fp_line();
-		free(newnode);
 		exit(EXIT_FAILURE);
 	}
 
-	num = atoi(str_num);
 	newnode->n = num;
 	newnode->prev = NULL;
 

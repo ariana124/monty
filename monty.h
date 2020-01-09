@@ -3,6 +3,8 @@
 
 #define DELIMS " \t\n\r"
 #define UNUSED __attribute__((unused))
+#define STACK 0
+#define QUEUE 1
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,6 +54,7 @@ void exe_operation(char *operation, stack_t **head, unsigned int line_number);
 int _isdigit(char *str);
 void free_dataStructure(void);
 void free_fp_line(void);
+void set_mode(char *command);
 
 /* instructions */
 void do_push(stack_t **stack, unsigned int line_number);
@@ -69,7 +72,8 @@ void do_pchar(stack_t **stack, unsigned int line_number);
 void do_rotl(stack_t **stack, unsigned int line_number);
 void do_pstr(stack_t **stack, unsigned int line_number);
 void do_rotr(stack_t **stack, unsigned int line_number);
-
+void do_push_stack(stack_t **stack, int num);
+void do_push_queue(stack_t **stack, int num);
 /* extern or global variable */
 
 /**
@@ -85,6 +89,7 @@ typedef struct global_vars_s
 	stack_t **top;
 	FILE *fp;
 	char *line;
+	int mode;
 } global_vars_t;
 
 extern global_vars_t GLOBAL_var;

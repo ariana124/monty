@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 
 	head = NULL;
 	GLOBAL_var.top = &head;
+	GLOBAL_var.mode = STACK;
 
 	/* checks if argument count is 2 */
 	if (argc != 2)

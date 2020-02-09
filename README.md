@@ -24,7 +24,7 @@
 - Code follows the [Betty](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl) [Style](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl).
 - You are allowed to use a maximum of one global variable.
 - No more than 5 functions per file.
-- The prototypes of all your functions should be included in your header file called `monty.h`
+- The prototypes of all your functions should be included in your header file called `monty.h`.
 - Header file should be include guarded.
 
 ### Compilation
